@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <!--------------------------------------------
+        Flatten
+        Version: 1.0
+        Created by: Axl Yody
+        Website: http://axlyody.tumblr.com
+        --------------------------------------------->
+        <title>{Title}{block:TagPage} - {Tag}{/block:TagPage}{block:SearchPage} - {SearchQuery}{/block:SearchPage}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}" />
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+        <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <meta charset="utf-8">
+        <meta name="google-site-verification" content="2GZ89lavfgeNuWf5Vc-HzFVzPMiVLPnytKi964Q-6tQ" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {block:PostSummary}
+        <meta property="og:title" content="{PostSummary} - {Name}" />
+        {/block:PostSummary}
+        
+        <meta property="og:site_name" content="{Title}"/>
+        {block:IndexPage}
+        <meta property="og:title" content="{Title}"/>
+        <meta property="og:type" content="blog"/>
+        <meta property="og:description" content="{MetaDescription}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/>
+        {/block:IndexPage}
+        {block:PermalinkPage}
+        <meta property="og:url" content="{Permalink}"/>
+        <meta property="og:type" content="article"/>
+        {block:Posts}
+        {block:Text}
+        {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
+        <meta property="og:description" content="{PlaintextBody}"/>
+        {/block:Text}
+        {block:Photo}
+        <meta property="og:image" content="{PhotoURL-500}"/>
+        {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+        {/block:Photo}
+        {block:Photoset}
+        {block:Photos}
+        <meta property="og:image" content="{PhotoURL-500}"/>
+        {/block:Photos}
+        {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+        {/block:Photoset}
+        {block:Quote}
+        <meta property="og:title" content="{PlaintextQuote}"/>
+        <meta property="og:description" content="{PlaintextSource}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/>
+        {/block:Quote}
+        {block:Link}
+        <meta property="og:title" content="{PlaintextName}"/>
+        <meta property="og:description" content="{PlaintextDescription}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/>
+        {/block:Link}
+        {block:Chat}
+        <meta property="og:title" content="{PlaintextTitle}"/>
+        <meta property="og:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/>
+        {/block:Chat}
+        {block:Audio}
+        <meta property="og:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+        <meta property="og:description" content="{PlaintextCaption}"/>
+        {block:AlbumArt}<meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+        {/block:Audio}
+        {block:Video}
+        {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+        {/block:Video}
+        {block:Answer}
+        <meta property="og:title" content="{PlaintextQuestion}"/>
+        <meta property="og:description" content="{PlaintextAnswer}"/>
+        <meta property="og:image" content="{PortraitURL-128}"/>
+        {/block:Answer}
+        {/block:Posts}
+        {/block:PermalinkPage}
+        
+        <meta name="if:Portrait" content="1"/>
+        <meta name="if:Night Mode" content="1"/>
+        <meta name="text:Disqus Shortname" content=""/>
+        <meta name="text:Google Analytics ID" content=""/>
+        <meta name="text:Facebook Username" content=""/>
+        <meta name="text:Twitter Username" content=""/>
+        <meta name="text:Pixiv ID" content=""/>
+        <meta name="text:DeviantArt Username" content=""/>
+        
+ <link href="//static.tumblr.com/8wmayn4/Fc5nyp1he/nifty.css" rel="stylesheet">       
+        <link href="//madobox.net/style/ph1/lib/stroke-7/style.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
+<link href="http://static.tumblr.com/8wmayn4/gl7nxyqrd/style.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+
+        {block:IfNotNightMode}{/block:IfNotNightMode}
+        
+        {block:IfNightMode}{/block:IfNightMode}
+        
+        <style>
+
+        {CustomCSS}
+        
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic");
+   body {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:14px;
+}
+
+.box-shadow--2dp {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
+}
+.box-shadow--3dp {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)
+}
+.box-shadow--4dp {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
+}
+.box-shadow--6dp {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2)
+}
+.box-shadow--8dp {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+.box-shadow--16dp {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)
+}
+        .btn-read-more
+{
+    padding: 5px;
+    text-align: center;
+    border-radius: 0px;
+    display: inline-block;
+    border: 2px solid #662D91;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    color:#662D91;
+}
+
+.btn-read-more:hover
+{
+   
+}
+.post {}
+.post-title {  }
+.post .glyphicon { margin-right:5px; }
+.post-header-line { border-top:1px solid #DDD;border-bottom:1px solid #DDD;padding:5px 0px 5px 15px;font-size: 12px; }
+.post-content { padding-bottom: 15px;padding-top: 15px;}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+position:static;
+    
+}
+.tanggal {
+    left: 6.80em;
+    margin: 25px 0 0;
+    background-color: #3F51B5;
+    padding: 15px 15px 0px 15px;
+    width: 65px;
+    position: absolute;
+}
+.post-content img {display:block;max-width:100%;height:auto; margin-top:20px;}
+.footer {
+    position: relative;
+    height: 50px;
+    clear: both;
+    padding-top: 20px;
+   
+    color: #fff;
+    margin-top:20px;
+}
+
+
+
+
+.am-top-header .navbar-collapse .navbar-nav>li>a {
+
+font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.am-top-header .navbar-header .page-title {
+font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a.active::after {
+
+    position: absolute;
+    border-bottom: 2px solid #F15555;
+    content: "tanya?";
+    height: 2px;
+    color: transparent;
+    margin-top: 10px;
+}
+.am-top-header {
+
+    border-bottom: #BB4F4F 4px solid;
+}
+.navbar-nav>li:hover {
+    background-color: #BB4F4F;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #BB4F4F;
+}
+.am-wrapper {
+        margin: 0;
+    background-color: transparent;
+}
+.navbar-default {
+    margin: 0;
+}
+.col-md-12.post {
+    background: #fff;
+    margin-bottom: 20px;
+}
+.panel-alt3 .panel-heading, .panel-full-alt3 .panel-heading {
+    background-color: #7a98bf;
+    border-bottom: 4px solid #456590;
+}
+
+.btn-social.btn-pixiv {
+    color: #fff;
+    background-color: #0096DB;
+    border-color: #0096DB;
+}
+.btn-social.btn-pixiv:hover {
+    color: #fff;
+    background-color: rgba(0, 150, 219, 0.68);
+    border-color: rgba(0, 150, 219, 0.68);
+
+}
+.panel-alt1 .panel-heading, .panel-full-alt1 .panel-heading {
+    background-color: #56c3e7;
+    border-bottom: 4px solid #3B8CA7;
+}
+span.icon-floating {
+    position: static;
+    text-align: right;
+    float: right;
+    font-size: 75px;
+    margin-top: -75px;
+    color: rgba(240, 240, 240, 0.61);
+    margin-right: -25px;
+}
+        .reblog_button, .like_button {
+    display: inline-block !important;
+    margin-right:15px;/* important needed due to inline styling */
+}
+
+
+@media (max-width:767px) {
+    .tanggal{
+        display:none;
+    }
+    .col-md-12.post {
+    background: #fff;
+    margin-bottom: 30px;
+}
+    .box-shadow--2dp {
+       box-shadow: 0 0px 0px 0 #fff, 0 0px 0px 0px #fff, 0 1px 1px 0 rgba(0, 0, 0, .12);
+}
+.box-shadow--3dp {
+    box-shadow: 0
+}
+.box-shadow--4dp {
+    box-shadow: 0
+}
+.box-shadow--6dp {
+    box-shadow: 0
+}
+.box-shadow--8dp {
+    box-shadow: 0
+}
+.box-shadow--16dp {
+    box-shadow: 0
+}
+.container {
+     padding-left: 0;
+    padding-right: 0;
+}
+}
+@media (min-width: 1200px)
+{
+.container {
+    width: 1090px;
+}
+}
+
+
+.postingan {
+        border-bottom: 2px solid #7A98BF;
+}
+.photo-single {
+        border-bottom: 2px solid #009688;
+}
+
+
+.tags{
+	margin:0;
+	padding:0;
+	position:absolute;
+	right:24px;
+	bottom:-12px;
+	list-style:none;
+	}
+.tags li, .tags a{
+	float:left;
+	height:24px;
+	line-height:24px;
+	position:relative;
+	font-size:11px;
+	}
+.tags a{
+	margin-left:20px;
+	padding:0 10px 0 12px;
+	background:#0089e0;
+	color:#fff;
+	text-decoration:none;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;	
+	border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;	
+	border-top-right-radius:4px;	
+	} 
+.tags a:before{
+	content:"";
+	float:left;
+	position:absolute;
+	top:0;
+	left:-12px;
+	width:0;
+	height:0;
+	border-color:transparent #0089e0 transparent transparent;
+	border-style:solid;
+	border-width:12px 12px 12px 0;		
+	}
+.tags a:after{
+	content:"";
+	position:absolute;
+	top:10px;
+	left:0;
+	float:left;
+	width:4px;
+	height:4px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	background:#fff;
+	-moz-box-shadow:-1px -1px 2px #004977;
+	-webkit-box-shadow:-1px -1px 2px #004977;
+	box-shadow:-1px -1px 2px #004977;
+	}	
+
+.arrowLeft a {
+    position: fixed;
+    z-index: 100;
+    left: -5px;
+    top: 45%;
+    padding: 15px 15px;
+    -webkit-transition: .2s ease-in;
+    -moz-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    transition: .2s ease-in;
+}
+.arrowLeft a:hover {
+left: 0;
+-webkit-transition: .2s ease-in;
+-moz-transition: .2s ease-in;
+-o-transition: .2s ease-in;
+transition: .2s ease-in;
+color: #fff;
+}
+.arrowRight a {
+position: fixed;
+z-index: 100;
+right: -5px;
+top: 45%;
+padding: 15px 15px;
+-webkit-transition: .2s ease-in;
+-moz-transition: .2s ease-in;
+-o-transition: .2s ease-in;
+transition: .2s ease-in;
+}
+.arrowRight a:hover {
+right: 0;
+-webkit-transition: .2s ease-in;
+-moz-transition: .2s ease-in;
+-o-transition: .2s ease-in;
+transition: .2s ease-in;
+color: #fff;
+}
+.arrowNav a {
+    background: rgba(0, 0, 0, 0.32);
+color: #fff;
+text-decoration: none;
+font-size: 16px;
+}
+
+
+@media (min-width:768px) { 
+     .nav-bg {
+    height: 0px;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    background: #BB4F4F;
+    transition: all .5s ease-in-out;
+}
+    
+	.menu-open .nav-bg { height: 50px } /* change to your height of the child menu */
+  
+	.menu-open #page {
+        padding-top:60px;
+	    transition: all .2s ease-in-out;
+	}
+  
+  #page {      height:1000px;/* demo only */
+}
+
+	.navbar-nav.nav > li { position: static }
+
+	.navbar-nav.nav .dropdown-menu {
+	    left: 0 !important;
+	    right: 0 !important;
+	    box-shadow: none;
+	    border: none;
+	    margin: 0 auto;
+	    max-width: 1170px;
+	    background: transparent;
+	    padding: 0;
+	}
+
+	.navbar-nav.nav .dropdown-menu > li { float: left }
+
+	.navbar-nav.nav .dropdown-menu > li > a {
+    width: auto !important;
+    background: rgba(144, 115, 115, 0);
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+}
+	.am-top-header .navbar-collapse .navbar-nav>li.dropdown .dropdown-menu>li>a {
+    font-size: 15px;
+    font-weight: 300;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    min-width: 0;
+}
+.am-top-header .navbar-collapse .navbar-nav>li.dropdown .dropdown-menu {
+    border: 0;
+    border-radius: 3px;
+    margin-top: 0;
+}
+.am-top-header .navbar-collapse .navbar-nav>li.dropdown .dropdown-menu:after {
+    border-bottom: 8px solid #BB4F4F;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: -8px;
+    content: "";
+    display: inline-block;
+    left: 42px;
+    margin-left: -6px;
+    position: absolute;
+}
+
+.am-top-header .navbar-collapse .navbar-nav>li.dropdown .dropdown-menu>li>a {
+    font-size: 15px;
+    font-weight: 300;
+    
+    padding: 10px 20px;
+    min-width: 0;
+}
+.am-top-header .navbar-collapse .navbar-nav>li.dropdown .dropdown-menu>li>a:hover {
+    background-color: transparent;
+    color: #fff;
+}
+}
+
+        </style>
+      
+
+        
+        <!--[if lt IE 9]>
+            <script src="http://static.tumblr.com/ypi9dez/25Smyc2mx/html5-3.6-respond-1.1.0.min.js"></script>
+        <![endif]-->
+        <!-- Infinite Scroll BEGIN -->
+
+<!-- Infinite Scroll END -->
+
+
+    </head>
+    <Body>
+    <div class=“pagination” style="display:none">
+{block:Pagination}{block:PreviousPage}<a href=“{PreviousPage}”>previous</a> &middot;{/block:PreviousPage} {block:NextPage}<a href=“{NextPage}” id=“next”>next</a>{/block:NextPage}{/block:Pagination}
+</div>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-----LINKS----->
+
+ <!-- Nifty Modal-->
+                 
+     <div class="am-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top am-top-header">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="page-title"><a href="/" style="color:#fff">{Title}</a>
+                </div><a href="/" class="navbar-brand">{Title}</a>
+            </div><a href="#" data-toggle="collapse" data-target="#am-navbar-collapse" class="am-toggle-top-header-menu collapsed"><span class="icon s7-more"></span></a>
+            <div id="am-navbar-collapse" class="collapse navbar-collapse ">
+                <ul class="nav navbar-nav navbar-right am-user-nav mobidrop">
+                
+                
+                
+                  
+            
+                </ul>
+                <ul class="nav navbar-nav am-nav-right">
+                    <li><a href="/">Home </a>
+                    </li>
+                    <li><a href="javascript:;" data-modal="md-stickyUp" class="md-trigger">Ask Me </a>
+                    </li>
+                    <li><a href="/archive">Archive </a>
+                    </li>
+                    <li><a href="/rss">RSS </a>
+                    </li>
+                
+                 
+                         <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/tagged/weeblicous" style="
+    margin-top: 0px;
+"><span class="ion-bowtie" style="
+    font-size: 15px;
+    font-size: 31px;
+    line-height: 21px;
+    margin-left: -10px;
+    /* margin-top: -12px; */
+"></span><p style="
+    margin-top: -25px;
+    margin-left: 25px;
+">Weaboos style</p></a></li>
+                <li><a href="/tagged/curhatan" style="
+    margin-top: 0px;
+"><span class="ion-quote" style="
+    font-size: 15px;
+    font-size: 31px;
+    line-height: 21px;
+    margin-left: -10px;
+    /* margin-top: -12px; */
+"></span><p style="
+    margin-top: -25px;
+    margin-left: 25px;
+">Curhatan</p></a></li>
+                <li><a href="/tagged/tuts" style="
+    margin-top: 0px;
+"><span class="ion-outlet" style="
+    font-size: 15px;
+    font-size: 31px;
+    line-height: 21px;
+    margin-left: -10px;
+    /* margin-top: -12px; */
+"></span><p style="
+    margin-top: -25px;
+    margin-left: 25px;
+">Tutorials</p></a></li>
+                <li><a href="/tagged/art" style="
+    margin-top: 0px;
+"><span class="ion-paintbucket" style="
+    font-size: 15px;
+    font-size: 31px;
+    line-height: 21px;
+    margin-left: -10px;
+    /* margin-top: -12px; */
+"></span><p style="
+    margin-top: -25px;
+    margin-left: 25px;
+">Art</p></a></li>
+                <li><a href="/tagged/kodingan" style="
+    margin-top: 0px;
+"><span class="ion-bug" style="
+    font-size: 15px;
+    font-size: 31px;
+    line-height: 21px;
+    margin-left: -10px;
+    /* margin-top: -12px; */
+"></span><p style="
+    margin-top: -25px;
+    margin-left: 25px;
+">Kodingan</p></a></li>
+          </ul>
+                    
+                   
+                </ul>
+              
+
+                <ul class="nav navbar-nav navbar-right am-icons-nav">
+                </ul>
+                
+                
+              
+                
+                <form class="navbar-form carikonten" action="/search" method="get" role="search" style="background-color: #ef6262;">
+                    <div class="input-group" style="float:right">
+                        <input type="text" name="q" class="form-control" placeholder="Ketik disini terus tekan enter.." style="color:#fff; width: 300px;" value="{SearchQuery}">
+                        <span class="input-group-btn">
+<input type="submit" style="display:none"/>
+<button type="submit" class="btn btn-default" style="font-size:14px">
+<span class="fa fa-search">
+<span class="sr-only">Search...</span>
+                        </span>
+                        </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <div>
+<div class="subnav">
+<div class="wrapper" style="    margin-top: 12px;">
+                
+                    <a href="ask">Tanya? </a>
+                    <a href="arsip">Arsip </a>
+                    
+                        
+                    </div>
+</div>
+
+
+
+         {block:IndexPage}
+         <div class="jumbotron" style="background: url({HeaderImage});     border-bottom: 1px solid rgba(0, 0, 0, 0.12);">
+      <div class="container" style="text-align:center">
+        <h1>Hello, world!</h1>
+        <p>Blablablabla</p>
+        <div class="spacer xs-mt-10">
+                    {block:IfFacebookUsername}
+                    <a href="http://fb.com/{text:Facebook Username}" class="btn btn-social btn-space btn-facebook"><i class="fa fa-facebook"></i></a>
+                    {/block:IfFacebookUsername}
+                    {block:IfTwitterUsername}
+                    <a href="http://twitter.com/{text:Twitter Username}" class="btn btn-social btn-space btn-twitter"><i class="fa fa-twitter"></i></a>
+                    {/block:IfTwitterUsername}
+                    {block:IfDeviantartUsername}
+                    <a href="{text:DeviantArt Username}.deviantart.com" class="btn btn-social btn-space btn-google-plus"><i class="fa fa-deviantart"></i></a>
+                    {/block:IfDeviantartUsername}
+                    {block:IfPixivID}
+                    <a href="http://www.pixiv.net/member.php?id={text:Pixiv ID}" class="btn btn-social btn-space btn-pixiv"><img src="http://static.tumblr.com/xlsgtjb/gAened81u/icon-pixiv.svg" width="12px"></a>
+                    {/block:IfPixivID}
+                  
+                  </div>
+      </div>
+    </div>
+        {/block:IndexPage}
+{block:PermalinkPage}<br><br> {/block:PermalinkPage} 
+
+<div class="container">
+    
+  
+
+        
+        <div class="col-12 col-sm-8 col-lg-8 main">
+        
+
+
+
+        
+     
+    
+      
+           
+            {block:Posts}
+            
+            
+               <section id="posts"{block:PermalinkPage} class="permalink-page"{/block:PermalinkPage}>
+               <div class="row container-fluid">
+               <div class="postid">
+            
+            
+            
+          
+            
+            
+            
+            {block:Text}
+            <div class="col-md-12 postingan post box-shadow--2dp">
+             <div class="tanggal">
+                 <a href="{Permalink}" style="color:#fff"> 
+                 <p style="text-align: center;
+    font-size: 31px;">{DayOfMonthWithZero}</p> <p style="text-align: center;">{ShortMonth}</p> </a>
+                     
+            </div>
+                    <article id="{PostID}">
+                    
+                            
+                            
+                            {block:Title}
+                            <div class="row">
+                            <div class="col-md-12">
+                            <h4><a href="{Permalink}" style="font-size:18px;">{Title}</a></h4>
+                            </div>
+                            </div>
+                            {/block:Title}
+                            
+                            <div class="row">
+                            <div class="col-md-12 post-header-line">
+                  
+                
+                   <div class="btn-group">
+                      <a href="#" class="btn btn-sm btn-social btn-google-plus"><i class="fa fa-commenting-o"></i></a>
+                     <a class="btn btn-sm btn-default dsq-comment-count" href="{Permalink}#disqus_thread" data-disqus-identifier="{Title}-identifier">Comments</a>
+                     
+                     
+                     
+                    </div>
+                      <div class="btn-group">
+                      <a href="#" class="btn btn-sm btn-social btn-alt3"><i class="fa fa-sticky-note-o"></i></a>
+                     <a class="btn btn-sm btn-default" href="{Permalink}">{NoteCount} Notes</a>
+                     
+                    </div>
+            
+             
+             
+           <div style="float:right;margin: -34px 0 0;">
+           
+            {LikeButton}
+                    {ReblogButton}
+                
+             </div>
+             
+                  
+                          </div></div>
+
+                            
+                            
+                            
+                             <div class="row post-content">
+                              <div class="col-md-12">
+
+{Body}
+{block:More}<p class="read-more"><a href="{Permalink}#more">selengkapnya...</a></p><a name="more"></a>{/block:More}
+</div></div>
+
+
+{block:HasTags}
+<div class="row">
+                    <div class="col-md-12 post-header-line">
+                  
+                    {block:Tags}
+                   <div class="btn-group">
+                    <a href="{TagURL}" class=""><td class="text-center"><span class="badge badge-danger">{Tag}</span></td></a>
+                    </div>
+                    {/block:Tags}
+            
+ </div></div>
+{/block:HasTags}
+
+                    </article>
+                {/block:Text}
+                
+                
+                
+                
+                
+                
+                {block:Photo}
+                  <div class="col-md-12 photo-single post box-shadow--2dp" style="padding:0">
+                  <div class="tanggal">
+                 <a href="{Permalink}" style="color:#fff"> 
+                 <p style="text-align: center;
+    font-size: 31px;">{DayOfMonthWithZero}</p> <p style="text-align: center;">{ShortMonth}</p> </a>
+                     
+            </div>
+                    
+                    
+                    <article id="{PostID}" class="photo">
+               
+                        <figure>
+                            {LinkOpenTag}
+                                <img src="{PhotoURL-1280}" class="img-responsive" alt="{PhotoAlt}"/>
+                            {LinkCloseTag}
+                        </figure>
+
+                       
+                    </article>
+                    
+                      <div class="col-md-12 post-header-line">
+                  
+                
+                   <div class="btn-group">
+                      <a href="#" class="btn btn-sm btn-social btn-google-plus"><i class="fa fa-commenting-o"></i></a>
+                     <a class="btn btn-sm btn-default dsq-comment-count" href="{Permalink}#disqus_thread" data-disqus-identifier="{Title}-identifier">Comments</a>
+                     
+                     
+                     
+                    </div>
+                      <div class="btn-group">
+                      <a href="#" class="btn btn-sm btn-social btn-alt3"><i class="fa fa-sticky-note-o"></i></a>
+                     <a class="btn btn-sm btn-default" href="{Permalink}">{NoteCount} Notes</a>
+                     
+                    </div>
+                    </div>
+  {block:Caption}
+  <div class="post">
+                              <div class="col-md-12" style="margin-top:10px">
+                              
+                              
+	{Caption}
+	</div>
+	
+	
+	
+	
+	
+	</div>
+  {/block:Caption}
+                {/block:Photo}
+                
+                
+                
+                
+                
+                
+                {block:Panorama}
+                    <article id="{PostID}" class="post panorama">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <figure>
+                            {LinkOpenTag}
+                                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                            {LinkCloseTag}
+                        </figure>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </article>
+                {/block:Panorama}
+                
+                
+                
+                
+                
+                
+                {block:Photoset}
+                 <div class="col-md-12 post" style="padding:0">
+                  <div class="tanggal">
+                 <a href="{Permalink}" style="color:#fff"> 
+                 <p style="text-align: center;
+    font-size: 31px;">{DayOfMonthWithZero}</p> <p style="text-align: center;">{ShortMonth}</p> </a>
+                     
+            </div>
+               <div class="photoset" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+    {block:Photos}
+      <img src="{PhotoURL-500}" />
+	{/block:Photos}
+   <div class="col-md-12 post-header-line">
+                  
+                
+                   <div class="btn-group">
+                      <a href="#" class="btn btn-sm btn-social btn-google-plus"><i class="fa fa-commenting-o"></i></a>
+                     <a class="btn btn-sm btn-default dsq-comment-count" href="{Permalink}#disqus_thread" data-disqus-identifier="{Title}-identifier">Comments</a>
+                     
+                     
+                     
+                    </div>
+                      <div class="btn-group">
+                      <a href="#" class="btn btn-sm btn-social btn-alt3"><i class="fa fa-sticky-note-o"></i></a>
+                     <a class="btn btn-sm btn-default" href="{Permalink}">{NoteCount} Notes</a>
+                     
+                    </div>
+                    </div>
+  {block:Caption}
+  <div class="post">
+                              <div class="col-md-12">
+                              
+                              <br>
+	{Caption}
+	</div>
+	
+	
+	
+	
+	
+	</div>
+  {/block:Caption}
+                {/block:Photoset}
+                
+                
+                
+                
+                
+                {block:Quote}
+                    <article id="{PostID}" class="post quote">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <h3>{Quote}</h3>
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </article>
+                {/block:Quote}
+                
+                
+                
+                
+                
+                {block:Link}
+                    <article id="{PostID}" class="post link">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </article>
+                {/block:Link}
+                
+                
+                
+                
+                
+                {block:Chat}
+                    <article id="{PostID}" class="post chat">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}{Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </article>
+                {/block:Chat}
+                
+                
+                
+                
+                
+                
+                {block:Video}
+                    <article id="{PostID}" class="post video">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <figure>
+                            {Video-500}
+                        </figure>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </article>
+                {/block:Video}
+                
+                
+                
+                
+                
+                
+                {block:Audio}
+                    <article id="{PostID}" class="post audio">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <figure>
+                            {AudioPlayerWhite}
+                        </figure>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </article>
+                {/block:Audio}
+                
+                
+                
+                
+                
+                
+                {block:Answer}
+                    <article id="{PostID}" class="post answer">
+                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <h3><a href="{Permalink}">{Question}</a></h3>
+
+                        <div class="response"><strong class="label">Answer: </strong>{Answer}</div>
+                    </article>
+                {/block:Answer}
+                
+                
+                
+                
+                 </div>
+                 </div>
+                 </div>
+                 </section>
+                
+                
+                
+                
+                
+                
+                
+                
+<!------ DISQUS COUNT ------>
+
+
+
+              
+                
+                
+                
+                
+              
+                
+
+
+                {/block:Posts}
+       
+
+
+    <!-----DISQUS COMMENTS----->
+  {block:PermalinkPage}
+  {block:IfDisqusShortname}
+
+  
+ <div class="row container-fluid">
+              <div class="panel panel-alt1 box-shadow--2dp">
+                <div class="panel-heading">
+                <span class="title">Comments</span>
+                <span class="icon-floating"><i class="fa fa-commenting"></i></span>
+                </div>
+                <div class="panel-body">
+                 
+                 
+                  <section id="disqus" class="clearfix" style="    padding-left: 20px;
+    padding-right: 20px;">
+           
+            <div id="disqus_thread"></div>
+            <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+            <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+        </section>
+                 
+                </div>
+              </div>
+ </div>           
+ {/block:IfDisqusShortname} 
+ 
+ 
+{block:PermalinkPagination}
+<div class="arrowNav">
+{block:NextPost} 
+<div class="arrowLeft">
+<a href="{NextPost}"><i class="fa fa-chevron-left"></i></a>
+</div>
+{/block:NextPost}
+{block:PreviousPost}
+<div class="arrowRight">
+<a href="{PreviousPost}"><i class="fa fa-chevron-right"></i></a>
+</div>
+{/block:PreviousPost}
+</div>
+{/block:PermalinkPagination} 
+ 
+ {/block:PermalinkPage}
+ <!-----END DISQUS COMMENTS----->
+  
+       
+        
+   {block:PermalinkPagination}     {block:PermalinkPage}     
+        
+   
+  
+{block:IndexPage}{block:Pagination}
+
+
+
+
+
+
+
+
+
+
+
+
+<!-----PAGE NAVIGATION----->
+        <nav class="navigation clearfix">
+            {block:NextPage}
+                <a href="{NextPage}" class="nav-next"></a>
+            {/block:NextPage}
+        
+            {block:PreviousPage}
+                <a href="{PreviousPage}" class="nav-previous"></a>
+            {/block:PreviousPage}
+        </nav>
+        <!-----PAGE NAVIGATION----->{/block:Pagination}{/block:IndexPage}
+        {block:PermalinkPage}{block:PermalinkPagination}<!-----PERMALINK NAVIGATION----->
+        <nav class="navigation clearfix">
+            {block:PreviousPost}
+                <a href="{PreviousPost}" class="nav-previous permalink-nav-previous">Older Post</a>
+            {/block:PreviousPost}
+        
+            {block:NextPost}
+                <a href="{NextPost}" class="nav-next permalink-nav-next">Newer Post</a>
+            {/block:NextPost}
+        </nav>
+        <!-----PERMALINK NAVIGATION----->{/block:PermalinkPagination}{/block:PermalinkPage}
+
+
+</div>
+<div class="col-12 col-sm-4 col-lg-4 right">
+<div class="col-md-13"> 
+
+<div class="panel panel-alt3 box-shadow--2dp">
+    <div class="panel-heading">
+        <h4>Categories</h4>
+        <span class="icon-floating"><i class="fa fa-tags"></i></span>
+    </div>
+    <ul class="list-group">
+         <li class="list-group-item"><a href="/tagged/curhat"><span aria-hidden="true" class="fa fa-quote-right"></span> Curhatan</a></li>
+                    <li class="list-group-item"><a href="/tagged/tuts"><span aria-hidden="true" class="fa fa-puzzle-piece"></span> Tuts</a></li>
+							<li class="list-group-item"><a href="/tagged/kodingan"><span aria-hidden="true" class="fa fa-code"></span> Kodingan</a></li>
+							<li class="list-group-item"><a href="/tagged/weeblicious"><span aria-hidden="true" class="fa fa-paw"></span> Weeblicious</a></li>
+							<li class="list-group-item"><a href="/tagged/art"><span aria-hidden="true" class="fa fa-paint-brush"></span> Art</a></li>
+							<li class="list-group-item"><a href="/tagged/sedotsedot"><span aria-hidden="true" class="fa fa-download"></span> Sedot-sedot</a></li>
+    </ul>
+</div>
+
+
+  
+    
+</div>        
+ </div>
+ <footer class="footer"><p style="text-align:center; line-height: 12px;     color: rgba(0, 0, 0, 0.56);">Copyright &copy; 2015 <a href="/">{Title}</a>. Powered by <a href="http://tumblr.com">Tumblr</a>. Flatten Weebs Theme by <a href="http://spaghetti-san.github.io">Spaghetti-san</a> &lt;3</p></footer>       
+
+
+
+
+
+
+
+ <div id="md-stickyUp" class="md-modal md-effect-9">
+                    <div class="md-content">
+                      <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                       
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default md-close">Cancel</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-primary md-close">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="md-overlay"></div>
+ 
+
+
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://static.tumblr.com/ypi9dez/NF5mye0bi/jquery.easing.1.3.min.js"></script>
+        <!-----PHOTOSET----->
+        <script src="http://static.tumblr.com/ypi9dez/yPqml8j24/imagesloaded.min.js"></script>
+        <script src="http://static.tumblr.com/ypi9dez/Fdfmneyei/pxuphotoset.min.js"></script>
+        <script>
+            $('.photo-slideshow').pxuPhotoset({
+                'ligthbox'  : true,
+                'highRes'   : true,
+                'rounded'   : 'corners',
+                'exif'      : false,
+                'captions'  : false,
+                'gutter'    : '15px',
+                'photoset'  : '.photo-slideshow',
+                'photoWrap' : '.photo-data',
+                'photo'     : '.pxu-photo'
+            }, function() {
+                $(this).animate({opacity:1});
+            });
+        </script>
+         <!-----MENU----->
+        <script>
+            $('#menu-button').click(function(){
+                $('#menu').toggleClass('fullscreen');
+                $('body').toggleClass('noscroll');
+                $('.menu-title').addClass('show');
+                $('.nav-button hr').toggleClass('hide');
+                $('.nav-button .close').toggleClass('show');
+            });
+        </script>
+        <!-----SCROLL----->
+        {block:IndexPage}<script>
+            $(document).scroll(function () {
+                var y = $(this).scrollTop();
+                if (y > 300) {
+                    $('.menu-title').addClass('show');
+                } else {
+                    $('.menu-title').removeClass('show');
+                }
+            });
+        </script>
+        
+        
+        
+        
+        {/block:IndexPage}
+        {block:PermalinkPage}<script>
+            $('.menu-title').addClass('show');
+        </script>{/block:PermalinkPage}
+        <!-----ARROW KEY BINDINGS----->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       <!-----ARROW KEY BINDINGS----->
+        {block:IndexPage}
+        <script>
+            {block:PreviousPage}function leftArrowPressed() {window.location = '{PreviousPage}';}{/block:PreviousPage}
+            {block:NextPage}function rightArrowPressed() {window.location = '{NextPage}';}{/block:NextPage}
+            document.onkeydown = function(evt) {
+                evt = evt || window.event;
+                switch (evt.keyCode) {
+                    {block:PreviousPage}case 37:
+                        leftArrowPressed();
+                        break;{/block:PreviousPage}
+                    {block:NextPage}case 39:
+                        rightArrowPressed();
+                        break;{/block:NextPage}
+                }
+            };
+        </script>
+        {/block:IndexPage}
+        {block:PermalinkPagination}
+        <script>
+            {block:NextPost}function leftArrowPressed() {window.location = '{NextPost}';}{/block:NextPost}
+            {block:PreviousPost}function rightArrowPressed() {window.location = '{PreviousPost}';}{/block:PreviousPost}
+            document.onkeydown = function(evt) {
+                evt = evt || window.event;
+                switch (evt.keyCode) {
+                    {block:NextPost}case 37:
+                        leftArrowPressed();
+                        break;{/block:NextPost}
+                    {block:PreviousPost}case 39:
+                        rightArrowPressed();
+                        break;{/block:PreviousPost}
+                }
+            };
+        </script>
+        {/block:PermalinkPagination}
+        
+        
+        
+     
+        <!-----RESPONSIVE VIDEO----->
+        <script src="http://static.tumblr.com/ypi9dez/JNamp6ag6/fluidvids.min.js"></script>
+        <!-----DISQUS SCRIPT----->
+        {block:IfDisqusShortname}
+        <script>
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+        </script>
+        {/block:IfDisqusShortname}
+        <!-----GOOGLE ANALYTICS----->
+        {block:IfGoogleAnalyticsID}
+            <script>
+                var _gaq=[["_setAccount","{text:Google Analytics ID}"],["_trackPageview"]];
+                (function(d,t){
+                    var g=d.createElement(t), s=d.getElementsByTagName(t)[0];
+                    g.async=1;
+                    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+                    s.parentNode.insertBefore(g,s)
+                }(document,"script"));
+            </script>
+        {/block:IfGoogleAnalyticsID}
+    
+ <script type="text/javascript">
+    var disqus_shortname = '{text:Disqus Shortname}';
+
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>       
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+
+
+
+<script src="//static.tumblr.com/8wmayn4/wL1nyps8z/main.js" type="text/javascript"></script>
+<script src="//static.tumblr.com/8wmayn4/AmPnyps91/bootstrap.min.js" type="text/javascript"></script>
+<script src="//static.tumblr.com/8wmayn4/6RYnypsbt/theme-switcher.min.js" type="text/javascript"></script>
+
+
+<script src="//cdn.jsdelivr.net/blazy/latest/blazy.min.js" type="text/javsacript"></script>
+<script src="//static.tumblr.com/wgijwsy/jgemkyt9x/jquery.photoset-grid.min.js"></script>
+<script src="//static.tumblr.com/8wmayn4/EHUnyp19i/jquery.modaleffects.js" type="text/javascript"></script>
+
+
+<script>
+    $(function () {
+    function closeSearch() {
+            var $form = $('.navbar-collapse form[role="search"].active')
+        $form.find('input').val('');
+      $form.removeClass('active');
+    }
+
+    // Show Search if form is not active // event.preventDefault() is important, this prevents the form from submitting
+    $(document).on('click', '.navbar-collapse form[role="search"]:not(.active) button[type="submit"]', function(event) {
+      event.preventDefault();
+      var $form = $(this).closest('form'),
+        $input = $form.find('input');
+      $form.addClass('active');
+      $input.focus();
+    });
+    // ONLY FOR DEMO // Please use $('form').submit(function(event)) to track from submission
+    // if your form is ajax remember to call `closeSearch()` to close the search container
+    $(document).on('click', '.navbar-collapse form[role="search"].active button[type="submit"]', function(event) {
+      closeSearch()
+      event.preventDefault();
+
+      var $form = $(this).closest('form'),
+        $input = $form.find('input');
+      $('#showSearchTerm').text($input.val());
+           closeSearch() 
+
+    });
+    });
+    </script>
+
+
+
+
+
+
+<script type="text/javascript">
+    $('.navbar').append('<span class="nav-bg"></span>');
+
+
+$('.dropdown-toggle').click(function() {
+
+    if (!$(this).parent().hasClass('open')) {
+
+        $('html').addClass('menu-open');
+
+    } else {
+
+        $('html').removeClass('menu-open');
+
+    }
+
+});
+
+
+$(document).on('click touchstart', function (a) {
+        if ($(a.target).parents().index($('.navbar-nav')) == -1) {
+                $('html').removeClass('menu-open');  
+        }
+});
+</script>
+
+
+<script type="text/javascript">
+$(function() {
+     var pgurl = window.location.href.substr(window.location.href
+.lastIndexOf("/")+1);
+     $(".wrapper a").each(function(){
+          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+          $(this).addClass("active");
+     })
+});
+</script>
+
+<script>
+$('.photoset').photosetGrid();
+</script>
+
+<script type="text/javascript">
+      $(document).ready(function(){
+      	//initialize the javascript
+      	App.init();
+      	
+      });
+      
+      $(window).load(function(){
+      	App.pageGallery();
+      });
+    </script>
+<script type="text/javascript">
+      $(document).ready(function(){
+      	App.livePreview();
+      });
+      
+    </script>
+
+<script type="text/javascript">
+$(function(){
+    var menuWidth=0;
+    $('.wrapper a').map(function(){
+        menuWidth = menuWidth + $(this).outerWidth(true);
+    });
+    // + 15px as fix, this maybe vary in your project
+    $('.wrapper').css('width', (menuWidth+15)); 
+});
+</script>        
+        
+    </body>
+</html>
