@@ -1,4 +1,4 @@
-# flattenwebs
+# pettanko
 Simple, Responsive, Elegant theme for Tumblr
 
 
